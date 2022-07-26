@@ -10,7 +10,10 @@ using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
 using Microsoft.OpenApi.Models;
+using MyStandardsProject1.Api.Brokers.DateTimes;
+using MyStandardsProject1.Api.Brokers.Loggings;
 using MyStandardsProject1.Api.Brokers.Storages;
+using MyStandardsProject1.Api.Services.Foundations.Students;
 
 namespace MyStandardsProject1.Api
 {
@@ -54,10 +57,14 @@ namespace MyStandardsProject1.Api
 
         private static void AddServices(IServiceCollection services)
         {
+            services.AddTransient<IStudentService, StudentService>();
         }
 
         private static void AddBrokers(IServiceCollection services)
         {
+            services.AddTransient<IStorageBroker, StorageBroker>();
+            services.AddTransient<ILoggingBroker, LoggingBroker>();
+            services.AddTransient<IDateTimeBroker, DateTimeBroker>();
         }
     }
 }
