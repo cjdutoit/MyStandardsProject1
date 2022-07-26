@@ -1,5 +1,10 @@
+// ---------------------------------------------------------------
+// Copyright (c) Christo du Toit. All rights reserved.
+// Licensed under the MIT License.
+// See License.txt in the project root for license information.
+// ---------------------------------------------------------------
+
 using Microsoft.EntityFrameworkCore;
-using MyStandardsProject1.Api.Models.Students;
 
 namespace MyStandardsProject1.Api.Brokers.Storages
 {
@@ -7,8 +12,6 @@ namespace MyStandardsProject1.Api.Brokers.Storages
     {
         private static void AddStudentConfigurations(ModelBuilder modelBuilder)
         {
-            // TODO: Add your fluent configurations here
-            // TODO: Call this method from StorageBroker.cs OnModelCreating method
         }
     }
 }

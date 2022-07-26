@@ -1,4 +1,10 @@
-﻿using System;
+﻿// ---------------------------------------------------------------
+// Copyright (c) Christo du Toit. All rights reserved.
+// Licensed under the MIT License.
+// See License.txt in the project root for license information.
+// ---------------------------------------------------------------
+
+using System;
 using EFxceptions.Identity;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
@@ -19,8 +25,6 @@ namespace MyStandardsProject1.Api.Brokers.Storages
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
             base.OnModelCreating(modelBuilder);
-
-            // TODO: Add your model configurations here...
         }
 
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
