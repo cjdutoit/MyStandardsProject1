@@ -1,3 +1,9 @@
+// ---------------------------------------------------------------
+// Copyright (c) Christo du Toit. All rights reserved.
+// Licensed under the MIT License.
+// See License.txt in the project root for license information.
+// ---------------------------------------------------------------
+
 using System;
 using MyStandardsProject1.Api.Models.Students;
 using MyStandardsProject1.Api.Models.Students.Exceptions;
@@ -12,9 +18,8 @@ namespace MyStandardsProject1.Api.Services.Foundations.Students
 
             Validate(
                 (Rule: IsInvalid(student.Id), Parameter: nameof(Student.Id)),
-
-                // TODO: Add any other required validation rules
-
+                (Rule: IsInvalid(student.FirstName), Parameter: nameof(Student.FirstName)),
+                (Rule: IsInvalid(student.LastName), Parameter: nameof(Student.LastName)),
                 (Rule: IsInvalid(student.CreatedDate), Parameter: nameof(Student.CreatedDate)),
                 (Rule: IsInvalid(student.CreatedByUserId), Parameter: nameof(Student.CreatedByUserId)),
                 (Rule: IsInvalid(student.UpdatedDate), Parameter: nameof(Student.UpdatedDate)),
@@ -109,6 +114,12 @@ namespace MyStandardsProject1.Api.Services.Foundations.Students
         {
             Condition = date == default,
             Message = "Date is required"
+        };
+
+        private static dynamic IsInvalid(string text) => new
+        {
+            Condition = String.IsNullOrWhiteSpace(text),
+            Message = "Text is required"
         };
 
         private static dynamic IsSame(
